@@ -16,7 +16,7 @@ env:
     IMG_PREFIX: stress-ng-static
 
 jobs:
-    bpftrace:
+    build:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@master
