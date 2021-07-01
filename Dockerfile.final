@@ -1,0 +1,10 @@
+ARG IMG=bpftrace-xenial-llvm-8
+ARG TAG
+
+FROM ${IMG}:${TAG} as builder
+
+FROM gcr.io/distroless/static:nonroot as final
+
+COPY --from=builder /stress-ng/stress-ng /usr/local/bin/stress-ng
+
+ENTRYPOINT ["/usr/local/bin/stress-ng"]
